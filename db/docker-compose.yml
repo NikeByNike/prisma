@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: nike
+      POSTGRES_PASSWORD: nikepass
+      POSTGRES_DB: test
+    ports:
+      - 5454:5432
+    container_name: db

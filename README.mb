@@ -1,0 +1,1 @@
+docker exec -it prisma_db_1 psql -U nike -d test -c 'SELECT * FROM public."User"'

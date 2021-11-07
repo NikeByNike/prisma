@@ -1,0 +1,27 @@
+{
+  "name": "prisma-pet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js",
+    "db-image": "docker-compose -f ./db/docker-compose.yml down && docker-compose -f ./db/docker-compose.yml up -d",
+    "prisme-reset": "npx prisma migrate reset -f && npx prisma migrate dev -n init",
+    "db-fill": "sh ./db/fill.sh",
+    "db-init": " npm run db-image && sleep 2 && npm run prisme-reset && npm run db-fill",
+    "db-web": "npx prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.4.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.14"
+  },
+  "devDependencies": {
+    "prisma": "^3.4.1"
+  }
+}
